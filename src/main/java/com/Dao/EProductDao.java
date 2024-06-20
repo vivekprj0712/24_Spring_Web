@@ -1,6 +1,9 @@
 package com.Dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +19,12 @@ public class EProductDao {
 	public void addProduct(EProductBean productBean) {
 		stmt.update("INSERT INTO PRODUCTS(PRODUCTNAME , CATEGORY , QTY , PRICE) VALUES(?,?,?,?) ",productBean.getProductName() , productBean.getCategory() , productBean.getQty() , productBean.getPrice());
 	}
+
+	public List<EProductBean> allProduct() {
+		List<EProductBean> products =stmt.query("SELECT * FROM PRODUCTS", new BeanPropertyRowMapper<EProductBean>(EProductBean.class));
+		return products;
+	}
+	
+	
+	
 }
