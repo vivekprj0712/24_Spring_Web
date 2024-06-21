@@ -24,6 +24,11 @@ public class EProductDao {
 		List<EProductBean> products =stmt.query("SELECT * FROM PRODUCTS", new BeanPropertyRowMapper<EProductBean>(EProductBean.class));
 		return products;
 	}
+
+	public void deleteProduct(Integer productId) {
+		stmt.update("DELETE FROM PRODUCTS WHERE PRODUCTID=?",productId);
+		
+	}
 	
 	
 	

@@ -6,10 +6,11 @@
 <%--  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> --%>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="ISO-8859-1">	
 <title>List Product</title>
 </head>
 <body>
+	<a href="/newproduct">New Product</a>
 	<h2>List Product</h2>
 	<%
 	List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
@@ -21,6 +22,7 @@
 			<th>Category</th>
 			<th>Qty</th>
 			<th>Price</th>
+			<th>Action</th>
 		</tr>
 		<%
 			for(EProductBean product : products){
@@ -30,6 +32,7 @@
 				out.println("<td>"+product.getCategory()+"</td>");
 				out.println("<td>"+product.getQty()+"</td>");
 				out.println("<td>"+product.getPrice()+"</td>");
+				out.println("<td><a href = 'deleteproduct?PRODUCTID="+product.getProductId() +"'>Delete</a></td>");
 				out.println("</tr>");
 			}
 		%>
