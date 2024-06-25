@@ -11,6 +11,7 @@
 </head>
 <body>
 	<a href="/newproduct">New Product</a>
+	<a href="/productname">Delete By Product Name</a>
 	<h2>List Product</h2>
 	<%
 	List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");

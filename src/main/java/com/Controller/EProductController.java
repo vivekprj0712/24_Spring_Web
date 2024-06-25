@@ -41,4 +41,15 @@ public class EProductController {
 		productDao.deleteProduct(productId);
 		return "redirect:/listproduct";
 	}
+	
+	@GetMapping("/productname")
+	public String productName() {
+		return "DeleteProductName";
+	}
+	
+	@PostMapping("/deleteproductname")
+	public String deleteProductName(EProductBean productBean) {
+		productDao.deleteProductName(productBean.getProductName());
+		return "redirect:/listproduct";
+	}
 }
