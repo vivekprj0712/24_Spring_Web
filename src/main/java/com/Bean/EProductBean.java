@@ -8,14 +8,14 @@ public class EProductBean {
 	private Integer productId;
 	private String productName;
 	private String category;
+	private Integer qty;
+	private Float price;
 	public String getCategory() {
 		return category;
 	}
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	private Integer qty;
-	private Float price;
 	public Integer getProductId() {
 		return productId;
 	}

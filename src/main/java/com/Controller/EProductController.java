@@ -52,4 +52,12 @@ public class EProductController {
 		productDao.deleteProductName(productBean.getProductName());
 		return "redirect:/listproduct";
 	}
+	
+	@GetMapping("/viewproduct")
+	public String viewProduct(@RequestParam("PRODUCTID") Integer productId , Model model) {
+		
+		EProductBean product = productDao.viewProduct(productId);
+		model.addAttribute("product", product);
+		return "ViewProduct";
+	}
 }

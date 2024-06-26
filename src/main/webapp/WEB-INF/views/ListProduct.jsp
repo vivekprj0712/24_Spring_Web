@@ -33,7 +33,7 @@
 				out.println("<td>"+product.getCategory()+"</td>");
 				out.println("<td>"+product.getQty()+"</td>");
 				out.println("<td>"+product.getPrice()+"</td>");
-				out.println("<td><a href = 'deleteproduct?PRODUCTID="+product.getProductId() +"'>Delete</a></td>");
+				out.println("<td><a href = 'deleteproduct?PRODUCTID="+product.getProductId() +"'>Delete</a> | <a href = 'viewproduct?PRODUCTID="+product.getProductId() +"'>View</a></td>");
 				out.println("</tr>");
 			}
 		%>
