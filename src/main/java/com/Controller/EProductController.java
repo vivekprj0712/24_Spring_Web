@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.service.annotation.GetExchange;
 
 import com.Bean.EProductBean;
@@ -25,7 +26,8 @@ public class EProductController {
 	}
 	
 	@PostMapping("/saveproduct")
-	public String saveProduct(EProductBean productBean) {
+	public String saveProduct(EProductBean productBean, @RequestParam("image") MultipartFile file) {
+		
 		productDao.addProduct(productBean);
 		return "redirect:/listproduct";
 	}

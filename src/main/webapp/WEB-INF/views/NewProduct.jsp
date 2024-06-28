@@ -7,11 +7,12 @@
 <title>New Product</title>
 </head>
 <body>
-	<form action="saveproduct" method = "post">
+	<form action="saveproduct" method = "post" enctype="multipart/form-data">
 		ProductName:<input type="text" name="productName">
 		Category:<input type="text" name="category">
 		Qty:<input type="text" name="qty">
 		Price<input type="text" name="price">
+		ProductImage:<input type="file" name="image">
 		<input type="submit" value = "Add Product">
 	</form>
 </body>

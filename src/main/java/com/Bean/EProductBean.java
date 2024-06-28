@@ -10,6 +10,7 @@ public class EProductBean {
 	private String category;
 	private Integer qty;
 	private Float price;
+	private String productImage;
 	public String getCategory() {
 		return category;
 	}
@@ -39,6 +40,12 @@ public class EProductBean {
 	}
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+	public String getProductImage() {
+		return productImage;
+	}
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 	
 	
