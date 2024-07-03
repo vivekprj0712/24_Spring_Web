@@ -13,12 +13,16 @@ import org.springframework.web.service.annotation.GetExchange;
 
 import com.Bean.EProductBean;
 import com.Dao.EProductDao;
+import com.Services.FileUploading;
 
 @Controller
 public class EProductController {
 
 	@Autowired
 	EProductDao productDao;
+	
+	@Autowired
+	FileUploading fileUploading;
 	
 	@GetExchange("/newproduct")
 	public String newProduct() {
@@ -27,7 +31,7 @@ public class EProductController {
 	
 	@PostMapping("/saveproduct")
 	public String saveProduct(EProductBean productBean, @RequestParam("image") MultipartFile file) {
-		
+		fileUploading.fileUpload(file);
 		productDao.addProduct(productBean);
 		return "redirect:/listproduct";
 	}
