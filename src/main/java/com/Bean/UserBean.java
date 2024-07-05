@@ -1,5 +1,7 @@
 package com.Bean;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UserBean {
 
 	private String firstName;
@@ -7,6 +9,7 @@ public class UserBean {
 	private String email;
 	private String password;
 	private String confirmPassword;
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -37,6 +40,7 @@ public class UserBean {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
+
 	
 	
 }

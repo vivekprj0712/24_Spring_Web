@@ -25,4 +25,20 @@ public class FileUploading {
 		
 		
 	}
+	public void userProfileImage(MultipartFile masterImage , String email , String path) {
+		
+			File dir = new File(path,email);
+			dir.mkdir();
+		
+		try {
+	
+			File img = new File(dir,masterImage.getOriginalFilename());
+			FileUtils.writeByteArrayToFile(img,masterImage.getBytes()); 
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

@@ -14,7 +14,7 @@ public  class EcomDao {
 	
 	public  void insertUser(EcomBean ebean) {
 	
-		stmt.update("INSERT INTO USERS(USERNAME , EMAIL , PASSWORD) VALUES(?,?,?) ", ebean.getUserName() , ebean.getEmail() , ebean.getPassword());
+		stmt.update("INSERT INTO USERS(USERNAME , EMAIL , PASSWORD ,PROFILEPATH) VALUES(?,?,?,?) ", ebean.getUserName() , ebean.getEmail() , ebean.getPassword(),ebean.getProfilePicPath());
 		
 		
 	}

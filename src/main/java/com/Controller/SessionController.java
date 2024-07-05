@@ -1,6 +1,10 @@
 package com.Controller;
 
 
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,11 +13,15 @@ import org.springframework.ui.Model;
 
 import com.Bean.SumBean;
 import com.Bean.UserBean;
+import com.Services.FileUploading;
 
 
 @Controller
 public class SessionController {
 
+	
+	@Autowired
+	FileUploading fileUpload;
 	
 	@GetMapping("/login")
 	public String login()
@@ -42,6 +50,9 @@ public class SessionController {
 		System.out.println("Password: " + userBean.getPassword());
 		
 		model.addAttribute("user", userBean);
+		
+		
+		
 		
 		return "Home";
 	}

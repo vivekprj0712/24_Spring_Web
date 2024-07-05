@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<form action="saveuser" method="Post">
+<form action="saveuser" method="Post" enctype="multipart/form-data">
 	FirstName:<input type="text" name="firstName"><br>
 	LastName:<input type="text" name="lastName"><br>
 	Email:<input type="text" name="email"><br>
 	Password:<input type="password" name="password"><br>
 	ConfirmPassword:<input type="password" name="confirmPassword"><br>
-	<input type="submit" value="Signup">
+		<input type="submit" value="Signup">
 	
 </form>
 
