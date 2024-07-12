@@ -12,7 +12,7 @@ public class FileUploading {
 	
 	public void fileUpload(MultipartFile masterImage ) {
 		
-		String path = "C:\\Royal\\Internship with Tejas Sir\\24-online-admission\\24-spring-web\\src\\main\\resources\\Images";
+		String path = "C:\\Royal\\Internship with Tejas Sir\\24-online-admission\\24-spring-web\\src\\main\\webapp\\Images";
 		
 		try {
 	
@@ -25,8 +25,9 @@ public class FileUploading {
 		
 		
 	}
-	public void userProfileImage(MultipartFile masterImage , String email , String path) {
+	public void userProfileImage(MultipartFile masterImage , String email) {
 		
+			String path = "C:\\Royal\\Internship with Tejas Sir\\24-online-admission\\24-spring-web\\src\\main\\webapp\\ProfileImage";
 			File dir = new File(path,email);
 			dir.mkdir();
 		

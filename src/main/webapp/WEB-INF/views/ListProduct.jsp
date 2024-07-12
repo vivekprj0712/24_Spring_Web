@@ -16,6 +16,8 @@
 	<%
 	List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
 	%>
+	
+	<a href ="ehome">Home Page</a><br><br>
 	<table border="1">
 		<tr>
 			<th>Product Id</th>

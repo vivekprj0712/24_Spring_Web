@@ -11,7 +11,7 @@ public class EcomBean {
 	private String email;
 	private String password;
 	private MultipartFile profilePic;
-	private String profilePicPath;
+	private String profilePath;
 	
 	public Integer getId() {
 		return id;
@@ -43,12 +43,11 @@ public class EcomBean {
 	public void setProfilePic(MultipartFile profilePic) {
 		this.profilePic = profilePic;
 	}
-	public String getProfilePicPath() {
-		return profilePicPath;
+	public String getProfilePath() {
+		return profilePath;
 	}
-	public void setProfilePicPath(String profilePicPath) {
-		this.profilePicPath = profilePicPath;
+	public void setProfilePath(String profilePath) {
+		this.profilePath = profilePath;
 	}
-	
 	
 }
