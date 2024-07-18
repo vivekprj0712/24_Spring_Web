@@ -15,6 +15,8 @@ import com.Bean.SumBean;
 import com.Bean.UserBean;
 import com.Services.FileUploading;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class SessionController {
@@ -68,5 +70,12 @@ public class SessionController {
 		model.addAttribute("sum", sum);
 		model.addAttribute("sumBean", sumBean);
 		return "Add";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session)
+	{
+		session.invalidate();
+		return "EcomLogin";
 	}
 }

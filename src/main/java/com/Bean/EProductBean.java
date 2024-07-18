@@ -1,6 +1,7 @@
 package com.Bean;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.web.multipart.MultipartFile;
 
 public class EProductBean {
 
@@ -10,7 +11,8 @@ public class EProductBean {
 	private String category;
 	private Integer qty;
 	private Float price;
-	private String productImage;
+	private MultipartFile productPic;
+	private String productPicPath;
 	public String getCategory() {
 		return category;
 	}
@@ -41,11 +43,17 @@ public class EProductBean {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-	public String getProductImage() {
-		return productImage;
+	public MultipartFile getProductPic() {
+		return productPic;
 	}
-	public void setProductImage(String productImage) {
-		this.productImage = productImage;
+	public void setProductPic(MultipartFile productPic) {
+		this.productPic = productPic;
+	}
+	public String getProductPicPath() {
+		return productPicPath;
+	}
+	public void setProductPicPath(String productPicPath) {
+		this.productPicPath = productPicPath;
 	}
 	
 	

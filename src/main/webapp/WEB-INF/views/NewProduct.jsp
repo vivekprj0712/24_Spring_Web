@@ -12,7 +12,7 @@
 		Category:<input type="text" name="category">
 		Qty:<input type="text" name="qty">
 		Price<input type="text" name="price">
-		ProductImage:<input type="file" name="image">
+		ProductImage:<input type="file" name="productPic">
 		<input type="submit" value = "Add Product">
 	</form>
 </body>

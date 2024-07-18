@@ -30,9 +30,11 @@ public class EProductController {
 	}
 	
 	@PostMapping("/saveproduct")
-	public String saveProduct(EProductBean productBean, @RequestParam("image") MultipartFile file) {
-		fileUploading.fileUpload(file);
-		productDao.addProduct(productBean);
+	public String saveProduct(EProductBean productBean) {
+		
+		productBean.setProductPicPath("\\Images\\" + productBean.getProductPic().getOriginalFilename());
+		productDao.addProduct(productBean);		
+		fileUploading.fileUpload(productBean.getProductPic());
 		return "redirect:/listproduct";
 	}
 	@GetMapping("/listproduct")

@@ -18,6 +18,7 @@
 	%>
 	
 	<a href ="ehome">Home Page</a><br><br>
+	<a href ="logout">Logout</a><br><br>	
 	<table border="1">
 		<tr>
 			<th>Product Id</th>

@@ -11,6 +11,6 @@
 	<h2>Welcome , ${user.userName}</h2>
 	<img alt="" src="${user.profilePath}" width="100px" height="100px" >
 	
-	<a href="listproduct">Products</a>
+	<a href="listuserproduct">Products</a>
 </body>
 </html>

@@ -17,7 +17,7 @@ public class EProductDao {
 	JdbcTemplate stmt;
 	
 	public void addProduct(EProductBean productBean) {
-		stmt.update("INSERT INTO PRODUCTS(PRODUCTNAME , CATEGORY , QTY , PRICE) VALUES(?,?,?,?) ",productBean.getProductName() , productBean.getCategory() , productBean.getQty() , productBean.getPrice());
+		stmt.update("INSERT INTO PRODUCTS(PRODUCTNAME , CATEGORY , QTY , PRICE , PRODUCTPICPATH) VALUES(?,?,?,?,?) ",productBean.getProductName() , productBean.getCategory() , productBean.getQty() , productBean.getPrice(),productBean.getProductPicPath());
 	}
 
 	public List<EProductBean> allProduct() {
