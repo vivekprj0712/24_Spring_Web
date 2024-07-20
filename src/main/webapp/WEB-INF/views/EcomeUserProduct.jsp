@@ -209,7 +209,7 @@ a, a:hover {
 		<div class="col-md">
 			
 			<a href="logout" class="bi bi-box-arrow-right btn btn-outline-danger mt-3  ml-5"></a> <a href="usercart" class="bi bi-cart cart-icon btn btn-outline-primary mt-3">
-            <span class="badge">3</span></a>
+            <span class="badge">${cartProductSize}</span></a>
 
 		</div>
 	</div>
