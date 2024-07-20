@@ -62,7 +62,7 @@ public class EProductController {
 	}
 	
 	@GetMapping("/viewproduct")
-	public String viewProduct(@RequestParam("PRODUCTID") Integer productId , Model model) {
+	public String viewProduct(@RequestParam("productId") Integer productId , Model model) {
 		
 		EProductBean product = productDao.viewProduct(productId);
 		model.addAttribute("product", product);

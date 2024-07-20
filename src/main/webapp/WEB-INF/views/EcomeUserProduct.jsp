@@ -16,6 +16,8 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 	integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 
 <style type="text/css">
 @import
@@ -180,6 +182,19 @@ a, a:hover {
 	background-color: #444444;
 	transform: translateY(-50%);
 }
+.cart-icon {
+            position: relative;
+            display: inline-block;
+        }
+.badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+        }
 </style>
 
 </head>
@@ -193,7 +208,8 @@ a, a:hover {
 	<div class="row">
 		<div class="col-md">
 			
-			<a href="logout">Logout</a>
+			<a href="logout" class="bi bi-box-arrow-right btn btn-outline-danger mt-3  ml-5"></a> <a href="usercart" class="bi bi-cart cart-icon btn btn-outline-primary mt-3">
+            <span class="badge">3</span></a>
 
 		</div>
 	</div>
@@ -227,7 +243,7 @@ a, a:hover {
 								<li><a href="addtocart?productId=<%=p.getProductId()%>"><i
 										class="fas fa-shopping-cart"></i></a></li>
 								<li><a href="#"><i class="fas fa-heart"></i></a></li>
-								<li><a href="#"><i class="fas fa-eye"></i></a></li>
+								<li><a href="viewproduct?productId=<%=p.getProductId()%>"><i class="fas fa-eye"></i></a></li>
 							</ul>
 						</div>
 						<div class="part-2">
