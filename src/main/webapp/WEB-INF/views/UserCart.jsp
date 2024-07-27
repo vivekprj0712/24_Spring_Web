@@ -1,3 +1,4 @@
+<%@page import="com.Bean.ProductCartBean"%>
 <%@page import="com.Bean.CartBean"%>
 <%@page import="com.Bean.EProductBean"%>
 <%@page import="java.util.List"%>
@@ -154,9 +155,9 @@
 </style>
 <body>
 	<%
-	List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
-/* 	List<CartBean> carts = (List<CartBean>) request.getAttribute("carts");
- */
+	List<ProductCartBean> products = (List<ProductCartBean>) request.getAttribute("products");
+ 	/* List<CartBean> carts = (List<CartBean>) request.getAttribute("carts"); */
+ 
 	%>
 	<% float price = 0.0f;%>
 	
@@ -173,7 +174,7 @@
 	 					<div class="col-md-12 col-lg-8">
 	 						<div class="items">
 				 				<%
-				 				for(EProductBean product : products){
+				 				for(ProductCartBean product : products){
 				 			%>
 				 				<div class="product">
 				 					<div class="row">
@@ -183,7 +184,7 @@
 					 					<div class="col-md-8">
 					 						<div class="info">
 						 						<div class="row">
-							 						<div class="col-md-5 product-name">
+							 						<div class="col-md-3 product-name">
 							 							<div class="product-name">
 								 							<a href="viewproduct?productId=<%=product.getProductId()%>" class="text-decoration-none link-dark"><%= product.getProductName()%></a>
 								 							<div class="product-info">
@@ -195,14 +196,18 @@
 							 						</div>
 							 						<div class="col-md-3 quantity">
 							 							<label for="quantity">Quantity:</label>
-							 							<input id="quantity" type="number" value ="1" class="form-control quantity-input">
+							 							<input id="quantity" type="number" value ="<%=product.getQty()%>" class="form-control quantity-input">
 							 						</div>
+							 						<div class="col-md-1 price"><a href="minusqty?cartId=<%=product.getCartId()%>"><i class="bi bi-file-minus text-danger"></i></a></div>
+							 						<div class="col-md-1 price"><a href="plusqty?cartId=<%=product.getCartId()%>"><i class="bi bi-file-plus text-success"></i></a></div>
+							 						
 							 							<div class="col-md-1 price">
-							 							<a href="removeusercart?productId=<%= product.getProductId()%>&userId=${userId}"><i class="bi bi-trash text-danger"></i></a>
+							 							<a href="removeusercart?cartId=<%= product.getCartId()%>"><i class="bi bi-trash text-danger"></i></a>
 							 						</div>
 							 						<div class="col-md-3 price">
 							 							<span><%=product.getPrice()%></span>
-			 											<% price = price + product.getPrice();%>
+			 											<% price = price + (product.getPrice() * product.getQty());%>
+			 											<% int cartId = product.getCartId();%>
 							 						</div>
 							 					</div>
 							 				</div>
@@ -216,11 +221,11 @@
 			 				<div class="summary">
 			 					
 			 					<h3>Summary</h3>
-			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price"><%= price %></span></div>
+			 					<div class="summary-item"><span class="text">Subtotal</span><span class="price"><%= price%></span></div>
 			 					<div class="summary-item"><span class="text">Discount</span><span class="price"><%= price*0.05%></span></div>
-			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">0</span></div>
-			 					<div class="summary-item"><span class="text">Total</span><span class="price"><%= price - price*0.05 %></span></div>
-			 					<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">50</span></div>
+			 					<div class="summary-item"><span class="text">Total</span><span class="price"><%= (price - (price*0.05))+50%></span></div>
+			 					<a href="checkout" class="btn btn-primary btn-lg btn-block text-white mt-3">Checkout</a>
 			 					<a href="listuserproduct" class="link-dark text-decoration-none">Back</a>
 				 			</div>
 			 			</div>

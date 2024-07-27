@@ -33,8 +33,7 @@ public class EcomSessionController {
 		
 		ebean.setProfilePath("ProfileImage//" + ebean.getEmail() + "//" + ebean.getProfilePic().getOriginalFilename());
 		edao.insertUser(ebean);
-		fileUpload.userProfileImage(ebean.getProfilePic(),ebean.getEmail());
-		
+		fileUpload.userProfileImage(ebean.getProfilePic(),ebean.getEmail());	
 		return "EcomLogin";
 	}
 	
@@ -50,8 +49,6 @@ public class EcomSessionController {
 		System.out.println(ebean.getPassword());
 
 		EcomBean dbUser = edao.authenticate(ebean.getEmail() , ebean.getPassword());
-		
-		
 
 		if(dbUser == null) {
 			model.addAttribute("error" , "Invalid Email or Password");
@@ -60,6 +57,7 @@ public class EcomSessionController {
 		else {
 			System.out.println(dbUser.getProfilePath());
 			session.setAttribute("user", dbUser);
+			session.setMaxInactiveInterval(60*10);
 			model.addAttribute("name",dbUser.getUserName());
 			model.addAttribute("img", dbUser.getProfilePath());
 			return "EComHome";

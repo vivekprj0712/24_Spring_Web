@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.Bean.CartBean;
 import com.Bean.EProductBean;
 import com.Bean.EcomBean;
+import com.Bean.ProductCartBean;
 import com.Dao.CartDao;
 
 import jakarta.servlet.http.HttpSession;
@@ -31,6 +32,7 @@ public class CartController {
 		cartBean.setProductId(productId);
 		cartBean.setUserId(userId);
 		cartDao.addToCart(cartBean);	
+		
 		return "redirect:/listuserproduct";
 	}
 	
@@ -40,11 +42,9 @@ public class CartController {
 		EcomBean dbUser = (EcomBean)session.getAttribute("user");
 		
 		if(dbUser != null) {
-			List<EProductBean> products = cartDao.myCart(dbUser.getId());	
+			List<ProductCartBean> products = cartDao.myCart(dbUser.getId());
 			model.addAttribute("products", products);
 			model.addAttribute("userId" , dbUser.getId());
-			/* List<CartBean> carts = cartDao.allCart(dbUser.getId()); */
-			/* model.addAttribute("carts", carts); */
 			return "UserCart";
 		}else {
 			return "redirect:/elogin";
@@ -52,9 +52,25 @@ public class CartController {
 		
 	}
 	@GetMapping("removeusercart")
-	public String removeUserCart(@RequestParam("productId") Integer productId , @RequestParam("userId") Integer userId) {
-		cartDao.deleteUserCart(productId,userId);
+	public String removeUserCart(@RequestParam("cartId") Integer cartId) {
+		cartDao.deleteUserCart(cartId);
 		return "redirect:/usercart";
 	}
+	
+	@GetMapping("minusqty")
+	public String minusQty(@RequestParam("cartId") Integer cartId) {
+		
+		
+		cartDao.minusQty(cartId);
+		return "redirect:/usercart";
+	}
+	
+	@GetMapping("plusqty")
+	public String plusQty(@RequestParam("cartId") Integer cartId) {
+		
+		cartDao.plusQty(cartId);
+		return "redirect:/usercart";
+	}
+	
 	
 }

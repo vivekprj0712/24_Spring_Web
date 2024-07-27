@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.Bean.EProductBean;
 import com.Bean.EcomBean;
+import com.Bean.ProductCartBean;
 import com.Dao.CartDao;
 import com.Dao.EProductDao;
 
@@ -27,7 +28,7 @@ public class EUserProductController {
 	public String listUserProducts(Model model, HttpSession session) {
 		EcomBean dbUser = (EcomBean)session.getAttribute("user");
 		List<EProductBean> products = productDao.allProduct();// return type
-		List<EProductBean> cartProduct = cartDao.myCart(dbUser.getId());	
+		List<ProductCartBean> cartProduct = cartDao.myCart(dbUser.getId());	
 		model.addAttribute("products", products);
 		model.addAttribute("cartProductSize", cartProduct.size());
 
